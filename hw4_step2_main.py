@@ -12,8 +12,7 @@ def sample_cg(model, clf, sched, cls_labels, num_steps, guidance_scale, device="
     ############################
     # Hint-1: alpha_t = sched.alphas[t_idx], abar_t  = sched.alphas_cumprod[t_idx]
     # Hint-2: model(x_t, t_vec, cls_labels, force_uncond=True) returns the unconditional eps --> ϵθ(xt, t, ∅)
-    # Hint-3: Once you obtain the logits from the classifier, log pϕ(y|xt, t) can be found via: logp_y = grad_log_softmax(logits, cls_labels)
-    # Then you can take its gradient afterwards
+    # Hint-3: Once you obtain the logits from the classifier, log pϕ(y|xt, t) can be found via: logp_y = grad_log_softmax(logits, cls_labels
     ############################
     
     def grad_log_softmax(logits, y):
@@ -27,7 +26,7 @@ def sample_cg(model, clf, sched, cls_labels, num_steps, guidance_scale, device="
     for i, t_idx in enumerate(timesteps):
         
         ############################
-        # TODO: Implement classifier guidance (CG) sampling
+        # Implement classifier guidance (CG) sampling
         ############################
         t_vec = t_idx.repeat(B)  # shape [B]
 
@@ -66,7 +65,7 @@ def sample_cfg(model, sched, cls_labels, num_steps, guidance_scale, device="cpu"
     for i, t_idx in enumerate(timesteps):
         
         ############################
-        # TODO: Implement classifier-free guidance (CFG) sampling
+        # Implement classifier-free guidance (CFG) sampling
         ############################
         t_vec = t_idx.repeat(B)  # shape [B]
 
